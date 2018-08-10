@@ -72,7 +72,19 @@ class Market_Exporter {
 
 		$this->define_admin_hooks();
 
+		$this->init_admin_meta_box();
+
 	}
+
+    /**
+     * Initial admin meta box
+     *
+     * @since 1.0.4
+     * @access private
+     */
+    private function init_admin_meta_box(){
+        Market_Exporter_Exclude_Meta_Box::run();
+    }
 
 	/**
 	 * Load the required dependencies for this plugin.
@@ -109,6 +121,7 @@ class Market_Exporter {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-admin.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-fs.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-wc.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-exclude-metabox.php';
 
 		$this->loader = new Market_Exporter_Loader();
 

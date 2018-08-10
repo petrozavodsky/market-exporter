@@ -74,6 +74,7 @@ class Market_Exporter {
 
 		$this->init_admin_meta_box();
 
+
 	}
 
     /**
@@ -82,7 +83,7 @@ class Market_Exporter {
      * @since 1.0.5
      * @access private
      */
-    private function init_admin_meta_box(){
+    public function init_admin_meta_box(){
         Market_Exporter_Exclude_Meta_Box::run();
     }
 

@@ -20,7 +20,7 @@ class Market_Exporter_FS {
 	/**
 	 * Use WP_Filesystem API.
 	 *
-	 * @since 1.0.4
+	 * @since 1.0.5
 	 * @var bool $fs_api
 	 */
 	private $fs_api = false;

@@ -121,7 +121,7 @@ class Market_Exporter {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-admin.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-fs.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-wc.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-exclude-metabox.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-market-exporter-exclude-meta-box.php';
 
 		$this->loader = new Market_Exporter_Loader();
 

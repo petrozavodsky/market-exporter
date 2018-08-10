@@ -15,13 +15,13 @@ class Market_Exporter_Exclude_Meta_Box
     public static $post_types;
 
     /**
-     * Инициализирует методы плагина
+     * Initial payload
      *
      * @author Vladimir Rambo Petrozavodsky
      */
     public static function run()
     {
-        self::$post_types = apply_filters('uni_market_exporter_helper_post_types', ['product']);
+        self::$post_types = apply_filters('market_exporter_helper_post_types', ['product']);
         self::filter_helper();
         self::ui_helper();
 
@@ -29,11 +29,11 @@ class Market_Exporter_Exclude_Meta_Box
     }
 
     /**
-     * Вызовметодов исключающих посты
+     * Exclude posts method initial
      */
     public static function filter_helper()
     {
-        // TODO see uni-market-exporter/admin/class-market-exporter-wc.php
+        // TODO see market-exporter/admin/class-market-exporter-wc.php
         add_filter('market_exporter_exclude_post', [__CLASS__, 'exclude_filter'], 10, 2);
     }
 
@@ -57,7 +57,7 @@ class Market_Exporter_Exclude_Meta_Box
     }
 
     /**
-     * Инициальзация интерфейса исключения постов
+     * Initial exclude post
      */
     public static function ui_helper()
     {
@@ -66,6 +66,8 @@ class Market_Exporter_Exclude_Meta_Box
     }
 
     /**
+     * Save fields in product meta data
+     *
      * @param $post_id
      * @return integer
      *
@@ -101,7 +103,7 @@ class Market_Exporter_Exclude_Meta_Box
     }
 
     /**
-     * Метод очистки данных
+     * Sanitise data method
      *
      * @param mixed $value
      * @param string $key
@@ -117,15 +119,15 @@ class Market_Exporter_Exclude_Meta_Box
 
 
     /**
-     * Регистрация метабокса
+     * Register meat box
      *
      * @author Vladimir Rambo Petrozavodsky
      */
     public static function fields()
     {
         add_meta_box(
-            'uni-market-exporter-helper-exclude-product',
-            __('Yandex market settings', 'uni-market-exporter-helper'),
+            'market-exporter-helper-exclude-product',
+            __('Yandex market settings', 'market-exporter'),
             [__CLASS__, 'fields_html'],
             [
                 self::$post_types
@@ -136,7 +138,7 @@ class Market_Exporter_Exclude_Meta_Box
     }
 
     /**
-     * Шаблон метабокса
+     * Meta box template
      *
      * @param WP_Post $post The post object.
      * @return void
@@ -153,7 +155,7 @@ class Market_Exporter_Exclude_Meta_Box
         }
 
         ?>
-        <p class="uni-market-exporter-helper__uploader-field">
+        <p class="market-exporter-helper__uploader-field">
             <input type="checkbox"
                    id="<?php echo self::$field_exclude_from_price_list; ?>"
                    name="additional[<?php echo self::$field_exclude_from_price_list; ?>]"
@@ -161,7 +163,7 @@ class Market_Exporter_Exclude_Meta_Box
                 <?php checked($data, '1'); ?>
             />
             <label for="<?php echo self::$field_exclude_from_price_list; ?>">
-                <?php _e('Exclude from price YML file', 'uni-market-exporter-helper'); ?>
+                <?php _e('Exclude from price YML file', 'market-exporter'); ?>
             </label>
         </p>
 

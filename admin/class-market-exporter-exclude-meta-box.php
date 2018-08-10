@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 10.08.18
- * Time: 9:17
- */
-
 
 class Market_Exporter_Exclude_Meta_Box
 {
